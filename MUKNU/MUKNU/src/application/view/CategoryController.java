@@ -1,0 +1,111 @@
+package application.view;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import org.json.simple.parser.ParseException;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
+public class CategoryController implements Initializable, ControlledScreen {
+	
+	ScreensController myController;
+	
+	Restaurant array = new Restaurant();
+	
+    @FXML
+    private TableView<RestaurantList> Table;
+    @FXML
+    private TableColumn<RestaurantList, String> nameColumn, gateColumn, priceColumn, menuColumn, telColumn;
+    
+    ObservableList<RestaurantList> list = FXCollections.observableArrayList();	
+	
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+        nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        gateColumn.setCellValueFactory(cellData -> cellData.getValue().gateProperty());
+        priceColumn.setCellValueFactory(cellData -> cellData.getValue().priceProperty());
+        menuColumn.setCellValueFactory(cellData -> cellData.getValue().menuProperty());
+        telColumn.setCellValueFactory(cellData -> cellData.getValue().telProperty());
+        Table.setItems(list);
+	}
+	
+	public void setScreenParent(ScreensController screenParent) {
+		myController = screenParent;
+	}
+	
+	@FXML
+	public void chooseKorean(ActionEvent event) throws IOException, ParseException {
+		array.Array();
+		Table.getItems().removeAll(list);
+	
+		for (int i : array.index("한식")) {
+	        Table.getItems().add(new RestaurantList(new SimpleStringProperty(array.restaurantList[i][0]), new SimpleStringProperty(array.restaurantList[i][1]), new SimpleStringProperty(array.restaurantList[i][2]), new SimpleStringProperty(array.restaurantList[i][5]), new SimpleStringProperty(array.restaurantList[i][4])));		
+		}
+	}
+	
+	@FXML
+	public void chooseChinese(ActionEvent event) throws FileNotFoundException, ParseException, IOException {
+		array.Array();
+		Table.getItems().removeAll(list);
+	
+		for (int i : array.index("중식")) {
+	        Table.getItems().add(new RestaurantList(new SimpleStringProperty(array.restaurantList[i][0]), new SimpleStringProperty(array.restaurantList[i][1]), new SimpleStringProperty(array.restaurantList[i][2]), new SimpleStringProperty(array.restaurantList[i][5]), new SimpleStringProperty(array.restaurantList[i][4])));		
+		}
+
+	}
+	
+	@FXML
+	public void chooseFastFood(ActionEvent event) throws FileNotFoundException, ParseException, IOException {
+		array.Array();
+		Table.getItems().removeAll(list);
+	
+		for (int i : array.index("인스턴트")) {
+	        Table.getItems().add(new RestaurantList(new SimpleStringProperty(array.restaurantList[i][0]), new SimpleStringProperty(array.restaurantList[i][1]), new SimpleStringProperty(array.restaurantList[i][2]), new SimpleStringProperty(array.restaurantList[i][5]), new SimpleStringProperty(array.restaurantList[i][4])));		
+		}
+	}
+	
+	@FXML
+	public void chooseWestern(ActionEvent event) throws FileNotFoundException, ParseException, IOException {
+		array.Array();
+		Table.getItems().removeAll(list);
+
+		for (int i : array.index("양식")) {
+	        Table.getItems().add(new RestaurantList(new SimpleStringProperty(array.restaurantList[i][0]), new SimpleStringProperty(array.restaurantList[i][1]), new SimpleStringProperty(array.restaurantList[i][2]), new SimpleStringProperty(array.restaurantList[i][5]), new SimpleStringProperty(array.restaurantList[i][4])));		
+		}
+	}
+	
+	@FXML
+	public void chooseJapanese(ActionEvent event) throws FileNotFoundException, ParseException, IOException {
+		array.Array();
+		Table.getItems().removeAll(list);
+
+		for (int i : array.index("일식")) {
+	        Table.getItems().add(new RestaurantList(new SimpleStringProperty(array.restaurantList[i][0]), new SimpleStringProperty(array.restaurantList[i][1]), new SimpleStringProperty(array.restaurantList[i][2]), new SimpleStringProperty(array.restaurantList[i][5]), new SimpleStringProperty(array.restaurantList[i][4])));		
+		}
+	}
+	
+	@FXML
+	public void chooseBunsik(ActionEvent event) throws FileNotFoundException, ParseException, IOException {
+		array.Array();
+		Table.getItems().removeAll(list);
+
+		for (int i : array.index("분식")) {
+	        Table.getItems().add(new RestaurantList(new SimpleStringProperty(array.restaurantList[i][0]), new SimpleStringProperty(array.restaurantList[i][1]), new SimpleStringProperty(array.restaurantList[i][2]), new SimpleStringProperty(array.restaurantList[i][5]), new SimpleStringProperty(array.restaurantList[i][4])));		
+		}
+	}
+	
+	@FXML
+	public void goBack(ActionEvent event) {
+        myController.setScreen(Main.mainID);
+	}	
+}

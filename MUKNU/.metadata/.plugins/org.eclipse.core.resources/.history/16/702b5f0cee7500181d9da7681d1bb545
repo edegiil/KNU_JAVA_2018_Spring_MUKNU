@@ -1,0 +1,51 @@
+package application.view;
+
+import java.io.IOException;
+
+import application.view.ScreensController;
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+	
+    public static String mainID = "main";
+    public static String mainFile = "Main.fxml";
+    public static String categoryID = "category";
+    public static String categoryFile = "Category.fxml";
+    public static String randomID = "random";
+    public static String randomFile = "Random.fxml";
+    public static String restaurantID = "restaurant";
+    public static String restaurantFile = "Restaurant.fxml";    
+    public static String mapID = "map";
+
+    Stage stage;
+    
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage stage) throws IOException {
+        
+    	ScreensController mainContainer = new ScreensController();
+    	
+    	mainContainer.loadScreen(Main.mainID, Main.mainFile);
+    	mainContainer.loadScreen(Main.categoryID, Main.categoryFile);
+    	mainContainer.loadScreen(Main.randomID, Main.randomFile);
+    	mainContainer.loadScreen(Main.restaurantID, Main.restaurantFile);
+    	mainContainer.loadMap(Main.mapID);
+    	
+		mainContainer.setScreen(Main.mainID);
+		
+		Group root = new Group();
+		root.getChildren().addAll(mainContainer);
+		Scene scene = new Scene(root);
+		
+		stage.setScene(scene);
+		
+		stage.setTitle("MUKNU");
+		stage.show();
+    } 
+}

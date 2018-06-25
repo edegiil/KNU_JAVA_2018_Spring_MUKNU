@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+
+<ScrollPane prefHeight="494.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <TableView fx:id="table" prefHeight="491.0" prefWidth="674.0">
+        <columns>
+          <TableColumn prefWidth="152.0" text="이름" />
+          <TableColumn prefWidth="87.0" text="위치" />
+            <TableColumn prefWidth="177.0" text="메뉴" />
+            <TableColumn prefWidth="115.0" text="가격대" />
+            <TableColumn prefWidth="141.0" text="전화번호" />
+        </columns>
+      </TableView>
+   </content>
+</ScrollPane>

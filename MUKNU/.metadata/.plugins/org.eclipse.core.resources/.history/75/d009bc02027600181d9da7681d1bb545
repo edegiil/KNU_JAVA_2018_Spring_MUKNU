@@ -1,0 +1,32 @@
+package application.view;
+
+import java.util.ArrayList; 
+import java.util.Iterator;
+import org.json.simple.*;
+
+public class JsonReader {
+    public static Restaurants Jsonread(String json) {
+    	Object object = JSONValue.parse(json);
+    	JSONObject jsonObject = (JSONObject) object;
+    	JSONArray jsonArray = (JSONArray) jsonObject.get("restaurant");
+    	return Jsonread(jsonArray);
+    }
+    
+    @SuppressWarnings("unchecked") 
+    private static Restaurants Jsonread(JSONArray jsonArray) { 
+    	Restaurants restaurant = new Restaurants(); 
+    	
+    	Iterator<JSONObject> it = jsonArray.iterator(); 
+    	while (it.hasNext()) { 
+    		JSONObject jsonObject = it.next(); 
+    		String name = (String) jsonObject.get("name"); 
+    		String gate = (String) jsonObject.get("gate");
+    		String tel = (String) jsonObject.get("tel");
+    		String category = (String) jsonObject.get("category"); 
+    		String price = (String) jsonObject.get("price"); 
+    		String menu = (String) jsonObject.get("menu"); 
+    		restaurant.addRestaurant(new Restaurant(name, gate, tel, category, price, menu)); 
+    	} 
+    	return restaurant; 
+    }
+}

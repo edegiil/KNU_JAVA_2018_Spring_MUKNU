@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>MUKNU</title>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="../model/restaurant.js"></script>
+    <style>#mapcanvas { height: 520px; width: 800px}</style>
+</head>
+<body>
+    <div id="container" >
+        <div id="mapcanvas"></div>
+    </div>
+    <div id="container" style="margin-right: 100px;">
+        <a onclick="">
+            <button type="button" class="btn btn-success" style="margin: 20px 20px 20px 20px;">선택완료!</button>
+        </a>
+        <script>restaurantCode</script>
+    </div>
+    
+    <script type="text/javascript">
+        document.map = new google.maps.Map(document.getElementById("mapcanvas"));
+        var latlng = new google.maps.LatLng(35.890013, 128.611339);
+        var Options = {
+            zoom: 16,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("mapcanvas"), Options);
+        for (let index = 0; index < data.length; index++) {
+            (function() {
+                var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(data[index].lat, data[index].lon),
+                map: map,
+                draggable: false,
+                title: data[index].name,
+                autoPan: true
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                    var restaurantCode = marker.title;
+                    alert(restaurantCode);
+                });
+            })();
+        }
+        document.goToLocation = function(x, y) {
+            var latLng = new google.maps.LatLng(x, y);
+            map.setCenter(latLng);
+        }
+    </script>
+</body>
+</html>

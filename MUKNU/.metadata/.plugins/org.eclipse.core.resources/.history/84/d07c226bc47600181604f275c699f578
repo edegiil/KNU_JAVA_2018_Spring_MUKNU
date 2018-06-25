@@ -1,0 +1,40 @@
+package application.view;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+public class RestaurantList {
+	private SimpleStringProperty name;
+	private SimpleStringProperty gate;
+	private SimpleStringProperty price;
+	private SimpleStringProperty menu;
+	private SimpleStringProperty tel;
+	
+	public RestaurantList(String name, String gate, String price, String menu, String tel) {
+		this.name = new SimpleStringProperty(name);
+		this.gate = new SimpleStringProperty(gate);
+		this.price = new SimpleStringProperty(price);
+		this.menu = new SimpleStringProperty(menu);
+		this.tel = new SimpleStringProperty(tel);
+	}
+
+	public StringProperty nameProperty() {
+		return this.name;
+	}
+
+	public StringProperty gateProperty() {
+		return this.gate;
+	}
+	
+	public StringProperty priceProperty() {
+		return this.price;
+	}
+	
+	public StringProperty menuProperty() {
+		return this.menu;
+	}
+
+	public StringProperty telProperty() {
+		return this.tel;
+	}
+}

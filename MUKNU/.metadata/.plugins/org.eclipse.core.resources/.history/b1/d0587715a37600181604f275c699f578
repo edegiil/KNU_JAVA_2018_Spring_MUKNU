@@ -1,0 +1,40 @@
+package application.view;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.text.Text;
+
+public class RestaurantController implements Initializable, ControlledScreen {
+	
+	ScreensController myController;
+	
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		
+	}
+	
+	public void setScreenParent(ScreensController screenParent) {
+		myController = screenParent;
+	}
+	
+	RandomController rand = new RandomController();
+	
+	@FXML
+	private Text name;
+	private Text price;
+	private Text gate;
+	private Text menu;
+	private Text tel;
+	
+	@FXML
+	public void goBack(ActionEvent event) {
+        myController.setScreen(Main.categoryID);
+	}
+	
+	
+	
+}

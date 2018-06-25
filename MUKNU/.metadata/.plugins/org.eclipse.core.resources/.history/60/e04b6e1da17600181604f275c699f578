@@ -1,0 +1,41 @@
+package application.view;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import application.view.Main;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+
+public class RandomController implements Initializable, ControlledScreen {
+	
+	ScreensController myController;
+	
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		
+	}
+	
+	public void setScreenParent(ScreensController screenParent) {
+		myController = screenParent;
+	}
+	
+	@FXML
+	public void goBack(ActionEvent event) {
+        myController.setScreen(Main.mainID);
+	}
+	
+	@FXML
+	public void randomPick(ActionEvent event) {
+		String[][] restaurant = Restaurant.restaurantList;
+		
+		int rand = (int) (Math.random() * restaurant.length);
+		
+		String name = restaurant[rand][0];
+		String gate = restaurant[rand][1];
+		String price = restaurant[rand][2];
+		String tel = restaurant[rand][4];
+		String menu = restaurant[rand][5];
+	}
+}

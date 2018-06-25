@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.RandomController">
+   <children>
+      <AnchorPane prefHeight="558.0" prefWidth="960.0">
+         <children>
+            <Button layoutX="319.0" layoutY="104.0" mnemonicParsing="false" onAction="#randomPick" prefHeight="108.0" prefWidth="322.0" style="-fx-background-color: red;" text="골 라 줘!" textFill="WHITE">
+               <font>
+                  <Font name="DX새날B" size="64.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="TOP" layoutX="841.0" layoutY="489.0" mnemonicParsing="false" onAction="#goBack" prefHeight="18.0" prefWidth="106.0" style="-fx-background-color: #FF282C;" text="돌아가기" textFill="WHITE">
+               <font>
+                  <Font name="DX빨간우체통B" size="21.0" />
+               </font>
+            </Button>
+            <Text fx:id="name" layoutX="106.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="어디에서..." wrappingWidth="259.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="gate" layoutX="447.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="무엇을">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="price" layoutX="781.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="먹을까요">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="menu" layoutX="105.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="골라" wrappingWidth="750.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="tel" layoutX="106.0" layoutY="496.0" strokeType="OUTSIDE" strokeWidth="0.0" text="주세요!!!">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="RED" layoutX="383.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="오늘은...">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

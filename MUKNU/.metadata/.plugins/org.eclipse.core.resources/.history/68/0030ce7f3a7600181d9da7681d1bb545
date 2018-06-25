@@ -1,0 +1,45 @@
+package application.view;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+public class Restaurant {
+	
+	static String[][][] restaurantList = new String[82][6][1];
+	
+    void Array() throws ParseException, FileNotFoundException, IOException {
+    	JSONParser jsonParser = new JSONParser();
+    
+    	JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("restaurant.txt"));
+    	
+    	JSONArray restaurantArray = (JSONArray) jsonObject.get("restaurant");
+    	
+    	for(int i = 0; i < restaurantArray.size(); i++) {
+    		JSONObject restaurantObject = (JSONObject) restaurantArray.get(i);
+    		
+    		restaurantList[i][0][0] = (String) restaurantObject.get("name");
+    		restaurantList[i][1][0] = (String) restaurantObject.get("gate");
+    		restaurantList[i][2][0] = (String) restaurantObject.get("price");
+    		restaurantList[i][3][0] = (String) restaurantObject.get("category");
+    		restaurantList[i][4][0] = (String) restaurantObject.get("tel");
+    		restaurantList[i][5][0] = (String) restaurantObject.get("menu");
+    	}
+    }
+    
+    public void print(String name) {
+        for (int index = 0; index < 82; index++) {
+        	String compare = restaurantList[index][0][0];
+        	if (name.equals(compare)) {
+            	System.out.println("이름 : " + restaurantList[index][0][0] + " 가격대 : " + restaurantList[index][2][0] + " 메뉴 : " + restaurantList[index][5][0] + " 전화번호 : " + restaurantList[index][4][0]);
+        	} else if (name == "null") {
+        		System.out.println("식당을 선택해주세요.");
+        	}
+        }
+    }
+}

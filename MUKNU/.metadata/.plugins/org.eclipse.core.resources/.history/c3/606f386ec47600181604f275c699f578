@@ -1,0 +1,94 @@
+package application.view;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import org.json.simple.parser.ParseException;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class CategoryController implements Initializable, ControlledScreen {
+	
+	ScreensController myController;
+	
+	Restaurant array = new Restaurant();
+	
+    @FXML
+    private TableView<RestaurantList> table;
+    @FXML
+    private TableColumn<RestaurantList, String> nameColumn, gateColumn, priceColumn, menuColumn, telColumn;
+    
+
+	
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+        nameColumn.setCellValueFactory(new PropertyValueFactory<RestaurantList, String>("name"));
+        gateColumn.setCellValueFactory(new PropertyValueFactory<RestaurantList, String>("gate"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<RestaurantList, String>("price"));
+        menuColumn.setCellValueFactory(new PropertyValueFactory<RestaurantList, String>("menu"));
+        telColumn.setCellValueFactory(new PropertyValueFactory<RestaurantList, String>("tel"));
+        
+        table.setItems(getList());
+	}
+	
+//	public ObservableList<RestaurantList> getList() {
+//	    ObservableList<RestaurantList> list = FXCollections.observableArrayList();
+//	    list.add(new RestaurantList("Hello", "my", "name", "is", "kim"));
+//	    
+//	    return list;
+//	}
+	
+	
+	public void setScreenParent(ScreensController screenParent) {
+		myController = screenParent;
+	}
+	
+	@FXML
+	public void chooseKorean(ActionEvent event) throws IOException, ParseException {
+//		array.Array();
+//		table.getItems().add(new RestaurantList(new SimpleStringProperty("김씨"), new SimpleStringProperty("김정은"), new SimpleStringProperty("김대중"), new SimpleStringProperty("김영삼"), new SimpleStringProperty("김종필")));
+//		
+//		for (int i : array.index("한식")) {
+//		    table.getItems().add(new RestaurantList(new SimpleStringProperty(array.restaurantList[i][0]), new SimpleStringProperty(array.restaurantList[i][1]), new SimpleStringProperty(array.restaurantList[i][2]), new SimpleStringProperty(array.restaurantList[i][5]), new SimpleStringProperty(array.restaurantList[i][4])));		
+//		}
+	}
+	
+	@FXML
+	public void chooseChinese(ActionEvent event) {
+
+	}
+	
+	@FXML
+	public void chooseFastFood(ActionEvent event) {
+
+	}
+	
+	@FXML
+	public void chooseWestern(ActionEvent event) {
+
+	}
+	
+	@FXML
+	public void chooseJapanese(ActionEvent event) {
+
+	}
+	
+	@FXML
+	public void chooseBunsik(ActionEvent event) {
+        
+	}
+	
+	@FXML
+	public void goBack(ActionEvent event) {
+        myController.setScreen(Main.mainID);
+	}	
+}

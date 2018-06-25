@@ -1,0 +1,48 @@
+package rand;
+
+class NorthGate{
+	public NorthGate() {
+		System.out.println(food[rand]+"(북문)");
+	}
+	String[] food = {"뉴살라딘","대독장","한스키친","이삭토스트","맛있는남자","쿡맨","주군찜갈비",
+			"1905 몬스터피자","육식소반","장군찜닭","고니식탁","아임스시","푸둥","한끼갈비","홍대함바그","정성식당", "맘스터치"};
+	int rand = (int) (Math.random() * food.length);
+
+}
+
+class EastGate{
+	public EastGate() {
+		System.out.println(food[rand]+"(동문)");
+	}
+	String[] food = {"신천황제떡볶이","오마이파스타","경주식당","미스콩","다래분식","다이나믹키친","색계찜닭","아리랑 감자탕&순대국","줌줌"};
+	int rand = (int) (Math.random() * food.length);
+
+}
+
+class MainGate{
+	public MainGate() {
+		System.out.println(food[rand]+"(정문+쪽문)");
+	}
+	String[] food = {"경대루반점","나드리김밥천국","청춘라면","모이다식탁","큰손 왕뼈다귀해장국","한솥도시락","경주국밥","정문똥집","대구라멘","금계찜닭","종이밥","봉구스밥버거","유정분식","죠스찜닭","동아리분식","신불떡볶이","맛나분식","정글로","겸손한밥집","우리분식","짬마담"};
+	int rand = (int) (Math.random() * food.length);
+	
+}
+
+class WestGate{
+	public WestGate() {
+		System.out.println(food[rand]+"(서문)");
+	}
+	String[] food = {"모짜르트","고기한마당","족발팩토리","왕추"};
+	int rand = (int) (Math.random() * food.length);
+	
+}
+public class RandomTest {
+
+	public static void main(String[] args) {
+		NorthGate ng = new NorthGate();
+		EastGate eg = new EastGate();
+		MainGate mg = new MainGate();
+		WestGate wg = new WestGate();
+	}
+
+}

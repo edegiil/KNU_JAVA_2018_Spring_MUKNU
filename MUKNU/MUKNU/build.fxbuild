@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<anttasks:AntTask xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:anttasks="http://org.eclipse.fx.ide.jdt/1.0" buildDirectory="${project}/build">
+  <deploy packagingFormat="exe">
+    <application name="j" mainclass="application.view.Main" version="1.0.0"/>
+    <info title="MUKNU" vendor="&#xbc15;&#xae30;&#xb355;,&#xac15;&#xb3d9;&#xc6b1;,&#xc774;&#xb3d9;&#xc12d;,&#xcd5c;&#xd615;&#xc11d;"/>
+  </deploy>
+  <signjar/>
+</anttasks:AntTask>

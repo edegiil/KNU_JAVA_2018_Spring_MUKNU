@@ -1,0 +1,72 @@
+package application.view;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
+public class CategoryController implements Initializable, ControlledScreen {
+	
+	ScreensController myController;
+	
+    @FXML
+    private TableView<RestaurantList> table;
+    @FXML
+    private TableColumn<RestaurantList, String> nameColumn, gateColumn, priceColumn, menuColumn, telColumn;
+    
+    ObservableList<RestaurantList> list = FXCollections.observableArrayList(
+        new RestaurantList(new SimpleStringProperty(), new SimpleStringProperty(), new SimpleStringProperty(), new SimpleStringProperty(), new SimpleStringProperty())
+    );	
+	
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		
+	}
+	
+	public void setScreenParent(ScreensController screenParent) {
+		myController = screenParent;
+	}
+	
+	@FXML
+	public void chooseKorean(ActionEvent event) throws IOException {
+		
+	}
+	
+	@FXML
+	public void chooseChinese(ActionEvent event) {
+
+	}
+	
+	@FXML
+	public void chooseFastFood(ActionEvent event) {
+
+	}
+	
+	@FXML
+	public void chooseWestern(ActionEvent event) {
+
+	}
+	
+	@FXML
+	public void chooseJapanese(ActionEvent event) {
+
+	}
+	
+	@FXML
+	public void chooseBunsik(ActionEvent event) {
+        
+	}
+	
+	@FXML
+	public void goBack(ActionEvent event) {
+        myController.setScreen(Main.mainID);
+	}	
+}

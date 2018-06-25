@@ -1,0 +1,9 @@
+package application.view;
+
+import javafx.scene.layout.Pane;
+
+public interface ControlledScreen extends Pane {
+	
+	public void setScreenParent(ScreensController screenPage);
+
+}

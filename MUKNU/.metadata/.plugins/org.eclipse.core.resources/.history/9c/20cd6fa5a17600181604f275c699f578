@@ -1,0 +1,41 @@
+package application.view;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.text.Text;
+
+public class RandomController implements Initializable, ControlledScreen {
+	
+	ScreensController myController;
+	
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		
+	}
+	
+	public void setScreenParent(ScreensController screenParent) {
+		myController = screenParent;
+	}
+	
+	@FXML
+	private Text name, gate, menu, price, tel;
+	
+	@FXML
+	public void goBack(ActionEvent event) {
+        myController.setScreen(Main.mainID);
+	}
+	
+	@FXML
+	public void randomPick(ActionEvent event) {
+		String[][] restaurant = Restaurant.restaurantList;
+		
+		int rand = (int) (Math.random() * restaurant.length);
+		
+		name.setText(restaurant[rand][0]);
+		System.out.println(restaurant[rand][0]);
+	}
+}
