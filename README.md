@@ -48,7 +48,7 @@ It is not workinng single `.exe` file. Thus, in order to execute this program, y
 
 ## Functions
    * Random Recommendation</br>
-    Randomly pick a restaurant near KNU by a click of button
+    Randomly pick a restaurant near KNU by single click of button
     
    * Categorize Restaurants</br>
     Showing restaurant near KNU by category in order to aid resasonable and easy choice.
